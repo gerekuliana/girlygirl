@@ -26,12 +26,39 @@ class GirlyGirl {
     });
     return this.features;
   }
+
+  cat() {
+    const catActions = [
+      'meow',
+      'purr',
+      'stretch',
+      'nap',
+      'play',
+      'hunt',
+      'groom'
+    ];
+    
+    const randomAction = catActions[Math.floor(Math.random() * catActions.length)];
+    const message = `🐱 The cat decides to ${randomAction}!`;
+    console.log(message);
+    return {
+      action: randomAction,
+      message: message
+    };
+  }
 }
 
 const app = new GirlyGirl();
 app.initialize();
 app.addFeature('Initial setup');
 app.addFeature('Basic structure');
+app.addFeature('Cat simulation');
 app.listFeatures();
+
+// Demonstrate the cat feature
+console.log('\n--- Cat Feature Demo ---');
+for (let i = 0; i < 3; i++) {
+  app.cat();
+}
 
 module.exports = GirlyGirl;
